@@ -1,5 +1,0 @@
-entity\Pessoa.class
-controller\CommandLine.class
-controller\ApplicationConfiguration.class
-controller\Application.class
-repository\PessoaRepository.class

@@ -1,0 +1,20 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: rest-teste
+  datasource:
+    url: jdbc:postgres:thin:@localhost:5432:teste
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+    hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  redis:
+    host: localhost
+    port: 6379
+
+spring.mail.default-encoding: UTF-8
+
+
+
+
