@@ -9,7 +9,6 @@
 	<packaging>jar</packaging>
 
 	<name>rest-teste</name>
-	<description>Demo project for Spring Boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -48,11 +47,7 @@
             <artifactId>postgresql</artifactId>
             <version>9.4.1209.jre7</version>
         </dependency>
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc14</artifactId>
-			<version>10.2.0.4.0</version>
-		</dependency>
+		
 
 		<dependency>
 			<groupId>javax.ws.rs</groupId>
