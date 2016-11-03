@@ -45,9 +45,8 @@ public class GenoaController {
     @Autowired
     private RedisTemplate<String,String> redisTemplate;
 
-    @RequestMapping(value = {"/v1/{operation}/{lote}","/v2/{operation}/{lote}","/v3/{operation}/{lote}"},method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
-    public String consultaNumeroLote(@PathVariable("operation") String operation,
-                    @PathVariable("lote") String lote) throws JsonProcessingException {
+    @RequestMapping(value = {"/teste"},method = RequestMethod.POST,produces= MediaType.APPLICATION_JSON_VALUE)
+    public String consultaNumeroLote() throws JsonProcessingException {
 
         Stopwatch stopwatch = Stopwatch.createStarted();
 
@@ -57,45 +56,7 @@ public class GenoaController {
 
         long elapsed = stop.elapsed(TimeUnit.MILLISECONDS);
 
-        if (elapsed==0){
-            logger.info(operation + " - tempo estimado: {} nano segundos ", stop.elapsed(TimeUnit.NANOSECONDS));
-        }
-
-        if (elapsed >1000){
-            logger.info(operation + " - tempo estimado: {} segundos ", stop.elapsed(TimeUnit.SECONDS));
-        }else{
-            logger.info(operation + " - tempo estimado: {} mili segundos ", elapsed);
-        }
-
-        return json;
-    }
-
-
-    @RequestMapping(value = {"/v1/{operation}/lote/{dataInicial}","/v2/{operation}/lote/{dataInicial}","/v3/{operation}/lote/{dataInicial}"},method = RequestMethod.GET,produces= MediaType.APPLICATION_JSON_VALUE)
-    public String listaLote(@PathVariable("operation") String operation,
-        @PathVariable("dataInicial") String dataInicial) throws JsonProcessingException {
-        LocalDate localDate = null;
-        try{
-            localDate = LocalDate.parse(dataInicial, DATE_FORMATTER);
-        }catch (Exception e){
-            logger.error(e.getMessage(),e);
-            return objectMapper.writeValueAsString(
-                new Status(Response.SC_BAD_REQUEST, "Data Inválida!", null));
-
-        }
-
-        String json;
-        List<Lote> lotes = getLotes(operation,localDate);
-        if (lotes.isEmpty()) {
-                return objectMapper.writeValueAsString(
-                    new Status(Response.SC_NO_CONTENT, "Não foram encontrado lotes para esta data!", null));
-            }
-
-        String dataLoteString = lotes.get(0).getDataLote().format(DATE_FORMATTER);
-        Result result = new Result(null,null,dataLoteString,
-                                    null,null,Long.valueOf(lotes.size()), lotes
-                                    );
-        json = objectMapper.writeValueAsString(result);
+        
 
         return json;
     }
