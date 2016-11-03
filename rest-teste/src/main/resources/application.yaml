@@ -14,7 +14,3 @@ spring:
     port: 6379
 
 spring.mail.default-encoding: UTF-8
-
-
-
-
