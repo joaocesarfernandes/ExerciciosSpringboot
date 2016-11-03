@@ -7,6 +7,6 @@ package com.genoa.api.version;
  */
 public interface ApiVersion {
 
-    String BASE_URL = "/genoa/api";
+    String BASE_URL = "/";
 
 }
