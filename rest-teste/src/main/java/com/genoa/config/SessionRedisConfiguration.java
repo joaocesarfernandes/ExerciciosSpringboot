@@ -14,36 +14,36 @@ import org.springframework.data.redis.core.RedisTemplate;
 @Configuration
 public class SessionRedisConfiguration {
 
-    @Value("${spring.redis.host}")
-    private String redisHostName;
-
-    @Value("${spring.redis.port}")
-    private int redisPort;
+//    @Value("${spring.redis.host}")
+//    private String redisHostName;
+//
+//    @Value("${spring.redis.port}")
+//    private int redisPort;
 
     @Bean
     public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean
-    JedisConnectionFactory jedisConnectionFactory() {
-        JedisConnectionFactory factory = new JedisConnectionFactory();
-        factory.setHostName(redisHostName);
-        factory.setPort(redisPort);
-        factory.setUsePool(true);
-        return factory;
-    }
+//    @Bean
+//    JedisConnectionFactory jedisConnectionFactory() {
+//        JedisConnectionFactory factory = new JedisConnectionFactory();
+//        factory.setHostName(redisHostName);
+//        factory.setPort(redisPort);
+//        factory.setUsePool(true);
+//        return factory;
+//    }
+//
+//    @Bean
+//    RedisTemplate redisTemplate() {
+//        RedisTemplate redisTemplate = new RedisTemplate();
+//        redisTemplate.setConnectionFactory(jedisConnectionFactory());
+//        return redisTemplate;
+//    }
 
-    @Bean
-    RedisTemplate redisTemplate() {
-        RedisTemplate redisTemplate = new RedisTemplate();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
-        return redisTemplate;
-    }
-
-    @Bean
-    RedisCacheManager cacheManager() {
-        RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate());
-        return redisCacheManager;
-    }
+//    @Bean
+//    RedisCacheManager cacheManager() {
+//        RedisCacheManager redisCacheManager = new RedisCacheManager(redisTemplate());
+//        return redisCacheManager;
+//    }
 }
