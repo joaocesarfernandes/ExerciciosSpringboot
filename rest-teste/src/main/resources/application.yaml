@@ -1,10 +1,10 @@
 server:
-  port: 8084
+  port: 8080
 spring:
   application:
     name: rest-teste
   datasource:
-    url: jdbc:postgres:thin:@localhost:5432:teste
+    url: jdbc:postgresql://localhost:5432/teste
     username: postgres
     password: postgres
     driverClassName: org.postgresql.Driver
