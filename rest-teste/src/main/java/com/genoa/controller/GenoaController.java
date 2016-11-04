@@ -21,7 +21,7 @@ public class GenoaController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @RequestMapping(value = {"/teste"},method = RequestMethod.GET)
+    @RequestMapping(value = {"/"},method = RequestMethod.GET)
     public String consultaNumeroLote() {
 
     	Usuario usu = new Usuario();
